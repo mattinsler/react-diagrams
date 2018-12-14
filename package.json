@@ -1,9 +1,9 @@
 {
-	"name": "storm-react-diagrams",
-	"version": "5.2.1",
+	"name": "@mattinsler/react-diagrams",
+	"version": "5.2.10",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/projectstorm/react-diagrams.git"
+		"url": "https://github.com/mattinsler/react-diagrams.git"
 	},
 	"keywords": [
 		"web",
@@ -22,13 +22,16 @@
 	"scripts": {
 		"build:ts": "webpack",
 		"build:ts:prod": "cross-env NODE_ENV=production webpack",
-		"build:sass:prod": "node-sass --output-style compressed ./src/sass/main.scss > ./dist/style.min.css",
+		"build:sass:prod":
+			"node-sass --output-style compressed ./src/sass/main.scss > ./dist/style.min.css",
 		"storybook": "start-storybook -p 9001 -c .storybook",
 		"storybook:build": "build-storybook -c .storybook -o .out",
 		"storybook:github": "storybook-to-ghpages",
-		"pretty": "prettier --use-tabs --write \"{src,demos,tests}/**/*.{ts,tsx}\" --print-width 120",
+		"pretty":
+			"prettier --use-tabs --write \"{src,demos,tests}/**/*.{ts,tsx}\" --print-width 120",
 		"lint": "tslint -p .",
-		"test:ci": "rm -rf ./dist && node ./tests/e2e/generate-e2e.js && jest --no-cache",
+		"test:ci":
+			"rm -rf ./dist && node ./tests/e2e/generate-e2e.js && jest --no-cache",
 		"test": "jest --no-cache",
 		"prepublishOnly": "yarn run build:ts:prod && yarn run build:sass:prod"
 	},

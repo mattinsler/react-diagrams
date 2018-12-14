@@ -1,22 +1,22 @@
-import { Toolkit } from "./Toolkit";
-import * as _ from "lodash";
-import { DiagramEngine } from "./DiagramEngine";
+import { Toolkit } from './Toolkit';
+import * as _ from 'lodash';
+import { DiagramEngine } from './DiagramEngine';
 
 /**
  * @author Dylan Vorster
  */
-export interface BaseEvent<T extends BaseEntity = any> {
+export interface BaseEvent<T = any> {
 	entity: BaseEntity<BaseListener>;
 	stopPropagation: () => any;
 	firing: boolean;
 	id: string;
 }
 
-export interface BaseListener<T extends BaseEntity = any> {
+export interface BaseListener<T = any> {
 	lockChanged?(event: BaseEvent<T> & { locked: boolean }): void;
 }
 
-export type BaseEntityType = "node" | "link" | "port" | "point";
+export type BaseEntityType = 'node' | 'link' | 'port' | 'point';
 
 export class BaseEntity<T extends BaseListener = BaseListener> {
 	public listeners: { [s: string]: T };
